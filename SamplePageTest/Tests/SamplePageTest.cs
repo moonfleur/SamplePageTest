@@ -30,7 +30,7 @@ namespace SamplePageTest
             _samplePage.SelectExperience("3-5");
             _samplePage.CheckFunctionalTesting();
             _samplePage.SelectPostGraduate();
-            _samplePage.SetComment("this is a test comment.");
+            _samplePage.SetComment("This is a test comment.");
             _samplePage.ClickSubmitButton();
 
             IWebElement confirmationMessage = _driver.FindElement(By.ClassName("contact-form-submission"));
@@ -43,35 +43,28 @@ namespace SamplePageTest
             string expectedEducationLevel = "Post Graduate";
             string expectedComment = "This is a test comment.";
 
-            //bool assertFailed = false;
-
             if (!messageText.Contains(expectedName))
             {
-                //assertFailed = true;
                 Assert.Fail($"Current name is {GetSubstring(messageText, "Name:", "Email:")}, expected name is {expectedName}");
             }
 
             if (!messageText.Contains(expectedEmail))
             {
-                //assertFailed = true;
                 Assert.Fail($"Current email is {GetSubstring(messageText, "Email:", "Website:")}, expected email is {expectedEmail}");
             }
 
             if (!messageText.Contains(expectedExperience))
             {
-                //assertFailed = true;
                 Assert.Fail($"Selected experience is {GetSubstring(messageText, "Experience (In Years):", "Expertise ::")}, expected experience is {expectedExperience}");
             }
 
             if (!messageText.Contains(expectedTypeOfTesting))
             {
-                //assertFailed = true;
                 Assert.Fail($"Selected type of testing is {GetSubstring(messageText, "Expertise ::", "Education:")}, expected type of testing is {expectedTypeOfTesting}");
             }
 
             if (!messageText.Contains(expectedEducationLevel))
             {
-                //assertFailed = true;
                 Assert.Fail($"Selected level of education is {GetSubstring(messageText, "Education:", "Comment:")}, expected level of education is {expectedEducationLevel}");
             }
 
